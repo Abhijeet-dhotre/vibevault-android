@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- App-specific download staging area (pre–Android 10 shares, fallbacks). -->
+    <external-files-path
+        name="app_downloads"
+        path="downloads/" />
+    <!-- Public Downloads/VibeVault on Android 9 and below. -->
+    <external-path
+        name="public_downloads"
+        path="Download/VibeVault/" />
+</paths>
