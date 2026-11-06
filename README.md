@@ -2,9 +2,24 @@
 
 Save the vibe for later.
 
+**VibeVault is a free, open-source Android video downloader.** Save videos,
+Instagram Reels, YouTube Shorts, TikToks, and posts from X / Twitter to your
+phone in MP4 video (up to 1080p) or MP3 audio — just share a link to the app
+and get the file. No ads, no account, no server, no watermark.
+
 VibeVault is an Android app that downloads video/audio from a link **shared to it via the
 Android Share sheet** (YouTube, Instagram, X, TikTok, a browser — any app),
 powered by a real on-device **yt-dlp**. Also works with pasted links.
+
+## Features
+
+- **Share to download** — share any video link from YouTube, Instagram, TikTok, X, or a browser; the app never needs to open
+- **Video downloader** — best MP4, up to 1080p, 720p, or 480p
+- **Audio downloader** — MP3 or original audio format
+- **Reels & Shorts saver** — save Instagram Reels, YouTube Shorts, and TikTok videos for offline viewing
+- **On-device yt-dlp** — no server, no account, no ads, no tracking
+- **Download history** — finished files in `Downloads/VibeVault`, tap to open
+- **Self-updating yt-dlp** — update the extractor in-app when a site changes, no app update needed
 
 No server, no account, no ads: extraction and downloading happen entirely on
 the phone via the [youtubedl-android](https://github.com/yausername/youtubedl-android)
