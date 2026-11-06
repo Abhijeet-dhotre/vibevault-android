@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- VibeVault UI — bestdesignsonx.com editorial language:
+     pure-white canvas, black serif display type with a blue italic
+     accent word, flat #F2F2F7 cards (20dp radius, no shadow),
+     pill inputs / chips / buttons, one electric-blue accent #074DE5.
+     All view IDs are unchanged from the original layout, so
+     MainActivity.java needs no changes. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="20dp">
 
-    <!-- Header -->
+    <!-- Header: editorial serif wordmark, Vibe in black, Vault in blue italic -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,17 +25,34 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/text_primary"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Vibe"
+                    android:textColor="@color/text_primary"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Vault"
+                    android:textColor="@color/accent"
+                    android:textSize="34sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:text="@string/tagline"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
@@ -45,6 +68,7 @@
                 android:id="@+id/tv_ytdlp_version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_grey"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp" />
 
@@ -53,7 +77,9 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/btn_update_ytdlp"
+                android:textAllCaps="false"
                 android:textColor="@color/accent"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -63,10 +89,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_card"
         android:orientation="vertical"
-        android:padding="14dp">
+        android:padding="16dp">
 
         <EditText
             android:id="@+id/et_url"
@@ -77,9 +103,10 @@
             android:imeOptions="actionDone"
             android:inputType="textUri"
             android:maxLines="3"
+            android:minHeight="48dp"
             android:textColor="@color/text_primary"
             android:textColorHint="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,6 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_paste"
+                android:textAllCaps="false"
                 android:textColor="@color/text_primary" />
 
             <Button
@@ -101,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_clear"
+                android:textAllCaps="false"
                 android:textColor="@color/text_primary" />
 
             <View
@@ -114,7 +143,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_fetch_info"
-                android:textColor="@color/accent" />
+                android:textAllCaps="false"
+                android:textColor="@color/accent"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Fetched media info (hidden until a fetch succeeds) -->
@@ -122,21 +153,22 @@
             android:id="@+id/info_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal"
             android:visibility="gone">
 
             <ImageView
                 android:id="@+id/iv_thumbnail"
-                android:layout_width="110dp"
-                android:layout_height="62dp"
+                android:layout_width="112dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_card"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -147,7 +179,7 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:textColor="@color/text_primary"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -161,89 +193,139 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Format picker -->
+    <!-- Format picker: pill chips instead of plain radio rows -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
+        android:letterSpacing="0.12"
         android:text="@string/label_format"
+        android:textAllCaps="true"
         android:textColor="@color/text_secondary"
-        android:textSize="12sp"
+        android:textSize="11sp"
         android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/rg_format"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/rb_best"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_chip"
+            android:button="@null"
             android:checked="true"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/preset_best"
-            android:textColor="@color/text_primary" />
+            android:textColor="@color/chip_text"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rb_1080"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_chip"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/preset_1080"
-            android:textColor="@color/text_primary" />
+            android:textColor="@color/chip_text"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rb_720"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_chip"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/preset_720"
-            android:textColor="@color/text_primary" />
+            android:textColor="@color/chip_text"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rb_480"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_chip"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/preset_480"
-            android:textColor="@color/text_primary" />
+            android:textColor="@color/chip_text"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rb_mp3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_chip"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/preset_mp3"
-            android:textColor="@color/text_primary" />
+            android:textColor="@color/chip_text"
+            android:textSize="14sp" />
 
         <RadioButton
             android:id="@+id/rb_audio_original"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_chip"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="@string/preset_audio_original"
-            android:textColor="@color/text_primary" />
+            android:textColor="@color/chip_text"
+            android:textSize="14sp" />
     </RadioGroup>
 
     <!-- Actions + progress -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_download"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/accent"
+            android:background="@drawable/bg_button_primary"
             android:text="@string/btn_download"
-            android:textColor="#FFFFFF" />
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginStart="8dp"
+            android:background="@drawable/bg_pill_grey"
             android:text="@string/btn_cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
             android:visibility="gone" />
     </LinearLayout>
 
@@ -251,19 +333,22 @@
         android:id="@+id/progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="12dp"
         android:max="100"
+        android:progressBackgroundTint="@color/divider"
+        android:progressTint="@color/accent"
         android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:text="@string/status_ready"
         android:textColor="@color/text_primary"
-        android:textSize="13sp" />
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_log"
@@ -276,20 +361,22 @@
         android:textColor="@color/text_secondary"
         android:textSize="11sp" />
 
-    <!-- Share defaults -->
+    <!-- Share defaults: segmented control -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
+        android:letterSpacing="0.12"
         android:text="@string/label_share_quality"
+        android:textAllCaps="true"
         android:textColor="@color/text_secondary"
-        android:textSize="12sp"
+        android:textSize="11sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         android:text="@string/share_quality_desc"
         android:textColor="@color/text_secondary"
         android:textSize="12sp" />
@@ -298,104 +385,133 @@
         android:id="@+id/rg_share_quality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_card"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
         <RadioButton
             android:id="@+id/rb_quality_best"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_segment"
+            android:button="@null"
+            android:gravity="center"
             android:text="@string/quality_best"
             android:textColor="@color/text_primary"
             android:textSize="13sp" />
 
         <RadioButton
             android:id="@+id/rb_quality_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_segment"
+            android:button="@null"
+            android:gravity="center"
             android:text="@string/quality_medium"
             android:textColor="@color/text_primary"
             android:textSize="13sp" />
 
         <RadioButton
             android:id="@+id/rb_quality_low"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_segment"
+            android:button="@null"
+            android:gravity="center"
             android:text="@string/quality_low"
             android:textColor="@color/text_primary"
             android:textSize="13sp" />
     </RadioGroup>
 
-    <!-- Instagram cookies -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/label_cookies"
-        android:textColor="@color/text_secondary"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="@string/cookies_desc"
-        android:textColor="@color/text_secondary"
-        android:textSize="12sp" />
-
+    <!-- Instagram cookies, in a flat card -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/tv_cookies_status"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/cookies_none"
-            android:textColor="@color/text_primary"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/btn_cookies_import"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_cookies_import"
-            android:textColor="@color/accent"
+            android:letterSpacing="0.12"
+            android:text="@string/label_cookies"
+            android:textAllCaps="true"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/cookies_desc"
+            android:textColor="@color/text_secondary"
             android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/btn_cookies_paste"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_cookies_paste"
-            android:textColor="@color/accent"
-            android:textSize="12sp" />
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_cookies_clear"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_cookies_clear"
-            android:textColor="@color/accent"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tv_cookies_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cookies_none"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btn_cookies_import"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_cookies_import"
+                android:textAllCaps="false"
+                android:textColor="@color/accent"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_cookies_paste"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_cookies_paste"
+                android:textAllCaps="false"
+                android:textColor="@color/accent"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_cookies_clear"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_cookies_clear"
+                android:textAllCaps="false"
+                android:textColor="@color/accent"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- History -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
+        android:letterSpacing="0.12"
         android:text="@string/label_history"
+        android:textAllCaps="true"
         android:textColor="@color/text_secondary"
-        android:textSize="12sp"
+        android:textSize="11sp"
         android:textStyle="bold" />
 
     <TextView

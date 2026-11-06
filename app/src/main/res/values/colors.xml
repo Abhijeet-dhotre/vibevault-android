@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- VibeVault UI — bestdesignsonx.com editorial language:
+     pure-white canvas, black type, iOS-grey surfaces, one electric-blue
+     accent (#074DE5). Colour comes from the artwork/thumbnail, not chrome. -->
 <resources>
-    <color name="bg">#0F1115</color>
-    <color name="surface">#1A1E26</color>
-    <color name="surface_light">#242A36</color>
-    <color name="accent">#E5484D</color>
-    <color name="accent_dark">#B92F34</color>
-    <color name="text_primary">#F2F4F8</color>
-    <color name="text_secondary">#9AA4B2</color>
-    <color name="divider">#2C333F</color>
-    <color name="ic_launcher_background">#0F1115</color>
+    <color name="bg">#FFFFFF</color>
+    <color name="surface">#F2F2F7</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="accent">#074DE5</color>
+    <color name="accent_dark">#003AAF</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#8E8E93</color>
+    <color name="divider">#E5E5EA</color>
+    <color name="success">#34C759</color>
+    <color name="pill">#F3F3F3</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

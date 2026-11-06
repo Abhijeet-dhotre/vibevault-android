@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Flat light-grey card, 20dp radius, no shadow — depth from the surface, not elevation. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <corners android:radius="14dp" />
+    <corners android:radius="20dp" />
     <solid android:color="@color/surface" />
 </shape>
